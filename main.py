@@ -48,23 +48,23 @@ while True:
         print("--"*20)
     elif op == 10:
         print("--"*20)
-        datos = buscar_servicio(datos)
+        buscar_servicio(datos)
         print("--"*20)
     elif op == 11:
         print("--"*20)
-        eliminar_servicio()
+        datos = eliminar_servicio(datos)
         print("--"*20)
     elif op == 12:
         print("--"*20)
-        modificar_servicio()
+        datos = modificar_servicio(datos)
         print("--"*20)
     elif op == 13:
         print("--"*20)
-        agregar_reclamo()
+        datos = agregar_reclamo(datos)
         print("--"*20)
     elif op == 14:
         print("--"*20)
-        buscar_reclamo()
+        buscar_reclamo(datos)
         print("--"*20)
     elif op == 15:
         print("--"*20)

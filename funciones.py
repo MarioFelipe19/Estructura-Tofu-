@@ -184,17 +184,90 @@ def buscar_servicio(datos):
     print("Tipo de servicio invalido!")
     print("__"*10)
 
-def eliminar_servicio():
-    print("hola19")
+def eliminar_servicio(datos):
+    datos = dict(datos)
+    referencia = input("Ingrese la referencia del servicio a eliminar: ")
+    for i in range(len(datos["servicio"])):
+        if datos["servicio"][i]["referencia"] == referencia:
+            datos["servicio"].pop(i)
+            print("__"*10)
+            print("servicio eliminado!")
+            print("__"*10)
+            return datos
+        
+    print("__"*10)
+    print("Servicio no existe!")
+    print("__"*10)
+    return datos
 
-def modificar_servicio():
-    print("hola20")
+def modificar_servicio(datos):
+    datos = dict(datos)
+    referencia = input("Ingrese la referencia del producto a modificar: ")
+    for i in range(len(datos["servicio"])):
+        if datos["servicio"][i]["referencia"] == referencia:
+            datos["servicio"][i]["referencia"] = input("Ingrese la nueva referencia del servicio: ")
+            datos["servicio"][i]["costo"]  = float(input("Ingrese el nuevo costo del servicio: "))
+            print("--"*13)
+            print("servicio modificado con exito!")
+            print("--"*13)
+            return datos
+        
+    print("__"*10)
+    print("Producto no existe!")
+    print("__"*10)
+    return datos
 
-def agregar_reclamo():
-    print("hola5")
+def agregar_reclamo(datos):
+    datos = dict(datos)
+    reclamo = {}
+    documento = input("Ingrese el documento del usuario: ")
+    for i in range(len(datos["usuario"])):
+        if datos["usuario"][i]["documento"] == documento:
+            reclamo["nombre_cliente"]  = datos["usuario"][i]["nombre"]
+            reclamo["documento_cliente"]  = documento
+            reclamo["nombre"]  = input("Ingrese el nombre del reclamo: ")
+            reclamo["contenido"]  = input("Ingrese el contenido del reclamo: ")
+            reclamo["numero"]  = int(input("Ingrese el numero del reclamo: "))
+            datos["reclamo"].append(reclamo)
+            print("--"*13)
+            print("Reclamo registrado con exito!")
+            print("--"*13)
+            return datos
 
-def buscar_reclamo():
-    print("hola6")
+    print("__"*10)
+    print("Documento invalido!")
+    print("Reclamo invalido!")
+    print("__"*10)
+
+
+def buscar_reclamo(datos):
+    datos = dict(datos)
+    op = int(input("Buscar por 1. Tipo reclamo, 2. Lista reclamos: "))
+    if op == 1:
+        documento = input("Ingrese el documento del usuario para buscar el reclamo: ")
+        numero = int(input("Ingrese el  numero del reclamo: "))
+        for i in range(len(datos["reclamo"])):
+            if datos["reclamo"][i]["documento_cliente"] == documento and datos["reclamo"][i]["numero"] == numero:
+                print("__"*10)
+                print("\n""Nombre de usuario:",datos["reclamo"][i]["nombre_cliente"],"\n" "Documento de usuario:", datos["reclamo"][i]["documento_cliente"],"\n""Nombre de reclamo:",datos["reclamo"][i]["nombre"],"\n" "Contenido:",datos["reclamo"][i]["contenido"],"\n" "Numero de la queja:",datos["reclamo"][i]["numero"])
+                print("__"*10)
+                return
+    elif op == 2:
+        while True:
+            documento = input("Ingrese el documento del usuario para buscar el reclamo: ")
+            for i in range(len(datos["reclamo"])):
+                if datos["reclamo"][i]["documento_cliente"] == documento:
+                    print("__"*10)
+                    print("\n""Nombre de usuario:",datos["reclamo"][i]["nombre_cliente"],"\n" "Documento de usuario:", datos["reclamo"][i]["documento_cliente"],"\n""Nombre de reclamo:",datos["reclamo"][i]["nombre"],"\n" "Contenido:",datos["reclamo"][i]["contenido"],"\n" "Numero de la queja:",datos["reclamo"][i]["numero"])
+                    print("__"*10)
+                return 
+            
+    print("__"*10)
+    print("Reclamo invalido!")
+    print("__"*10)
+
+
+
 
 def eliminar_reclamo():
     print("hola7")
