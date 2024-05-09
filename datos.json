@@ -1,0 +1,31 @@
+{
+    "usuario":[
+        {
+            "nombre": "mario",
+            "documento":"234789",
+            "direccion": "calle 105",
+            "telefono": "11111111",
+            "categoria": "1"
+
+        }
+    ],
+    "producto":[
+        {
+            "tipo":"telefono",
+            "marca":"xiaomi",
+            "referencia":"note10",
+            "cantida":"10",
+            "costo":"500000"
+
+        }
+    ],
+    "servicio":[
+        {
+            "tipo":"internet",
+            "referencia":"fibra",
+            "costo":"50000"
+
+        }
+    ]
+    
+}
