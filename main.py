@@ -36,19 +36,19 @@ while True:
         print("--"*20)
     elif op == 7:
         print("--"*20)
-        eliminar_producto()
+        datos = eliminar_producto(datos)
         print("--"*20)
     elif op == 8:
         print("--"*20)
-        modificar_producto()
+        datos = modificar_producto(datos)
         print("--"*20)
     elif op == 9:
         print("--"*20)
-        agregar_servicio()
+        datos = agregar_servicio(datos)
         print("--"*20)
     elif op == 10:
         print("--"*20)
-        buscar_servicio()
+        datos = buscar_servicio(datos)
         print("--"*20)
     elif op == 11:
         print("--"*20)

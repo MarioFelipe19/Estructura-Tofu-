@@ -19,18 +19,11 @@
     ],
     "producto": [
         {
-            "tipo": "telefono",
-            "marca": "xiaomi",
-            "referencia": "note10",
-            "cantidad": 10,
-            "costo": 500000
-        },
-        {
             "tipo": "tablet",
             "marca": "tcl",
-            "referencia": "a1",
-            "cantidad": 20,
-            "costo": 500000.0
+            "referencia": "a2",
+            "cantidad": 40,
+            "costo": 400000.0
         }
     ],
     "servicio": [
@@ -38,6 +31,11 @@
             "tipo": "internet",
             "referencia": "fibra",
             "costo": "50000"
+        },
+        {
+            "tipo": "internet",
+            "referencia": "adsl 10mb",
+            "costo": 20000.0
         }
     ],
     "reclamo": [
