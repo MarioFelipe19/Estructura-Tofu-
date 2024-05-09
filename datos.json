@@ -1,67 +1,72 @@
 {
-    "usuario":[
+    "usuario": [
         {
             "nombre": "mario",
-            "edad":26,
-            "documento":"234789",
+            "documento": "1",
             "direccion": "calle 105",
-            "telefono": "11111111",
-            "categoria": "1"
-
-        }
-    ],
-    "producto":[
-        {
-            "tipo":"telefono",
-            "marca":"xiaomi",
-            "referencia":"note10",
-            "cantida":"10",
-            "costo":"500000"
-
-        }
-    ],
-    "servicio":[
-        {
-            "tipo":"internet",
-            "referencia":"fibra",
-            "costo":"50000"
-        }
-    ],
-    "reclamo":[
-        {   
-            "nombre": "queja",
-            "contenido":"mal sevicio",
-            "numero":"1",
-            "nombre_cliente":"mario",
-            "docuemento_cliente":"11111111"
-        }
-    ],
-    "suegerencia":[
-        {
-            "nombre": "mejorar servicio",
-            "contenido":"mejorar la atencion prestada",
-            "numero":"1",
-            "nombre_cliente":"mario",
-            "docuemento_cliente":"11111111"  
-        }
-    ],
-    "venta":[
-        {
-            "tipo":"telefono",
-            "marca":"xiaomi",
-            "referencia":"note10",
-            "cantida":"10",
-            "costo":"500000",
-            "nombre_cliente":"mario",
-            "docuemento_cliente":"11111111"
+            "telefono": "34567878",
+            "edad": 26,
+            "categoria": 1
         },
         {
-            "tipo":"internet",
-            "referencia":"fibra",
-            "costo":"50000",
-            "nombre_cliente":"mario",
-            "docuemento_cliente":"11111111"
+            "nombre": "vanesa",
+            "documento": "2",
+            "direccion": "calle 3",
+            "telefono": "235656",
+            "edad": 66,
+            "categoria": 3
+        }
+    ],
+    "producto": [
+        {
+            "tipo": "telefono",
+            "marca": "xiaomi",
+            "referencia": "note10",
+            "cantida": "10",
+            "costo": "500000"
+        }
+    ],
+    "servicio": [
+        {
+            "tipo": "internet",
+            "referencia": "fibra",
+            "costo": "50000"
+        }
+    ],
+    "reclamo": [
+        {
+            "nombre": "queja",
+            "contenido": "mal sevicio",
+            "numero": "1",
+            "nombre_cliente": "mario",
+            "docuemento_cliente": "11111111"
+        }
+    ],
+    "suegerencia": [
+        {
+            "nombre": "mejorar servicio",
+            "contenido": "mejorar la atencion prestada",
+            "numero": "1",
+            "nombre_cliente": "mario",
+            "docuemento_cliente": "11111111"
+        }
+    ],
+    "venta": [
+        {
+            "tipo": "telefono",
+            "marca": "xiaomi",
+            "referencia": "note10",
+            "cantida": "10",
+            "costo": "500000",
+            "nombre_cliente": "mario",
+            "docuemento_cliente": "11111111"
+        },
+        {
+            "tipo": "internet",
+            "referencia": "fibra",
+            "costo": "50000",
+            "nombre_cliente": "mario",
+            "docuemento_cliente": "11111111"
         }
     ]
-    
 }

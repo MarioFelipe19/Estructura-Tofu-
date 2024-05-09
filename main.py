@@ -16,15 +16,15 @@ while True:
         print("--"*20)
     elif op == 2:
         print("--"*20)
-        buscar_usuario()
+        buscar_usuario(datos)
         print("--"*20)
     elif op == 3:
         print("--"*20)
-        eliminar_usuario()
+        datos = eliminar_usuario(datos)
         print("--"*20)
     elif op == 4:
         print("--"*20)
-        modificar_usuario()
+        datos = modificar_usuario(datos)
         print("--"*20)
     elif op == 5:
         print("--"*20)
