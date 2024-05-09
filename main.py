@@ -1,12 +1,18 @@
 from menu import *
 from funciones import *
+from cargar_datos import * 
+
+ruta_base_de_datos = "datos.json"
+
+datos = cargar_datos(ruta_base_de_datos)
+
 
 while True:
     menu_principal()
     op = pedir_opcion()
     if op == 1:
         print("--"*20)
-        agregar_usuario()
+        datos = agregar_usuario(datos)
         print("--"*20)
     elif op == 2:
         print("--"*20)
@@ -54,19 +60,19 @@ while True:
         print("--"*20)
     elif op == 13:
         print("--"*20)
-        agregar_reclamacion()
+        agregar_reclamo()
         print("--"*20)
     elif op == 14:
         print("--"*20)
-        buscar_reclamacion()
+        buscar_reclamo()
         print("--"*20)
     elif op == 15:
         print("--"*20)
-        eliminar_reclamacion()
+        eliminar_reclamo()
         print("--"*20)
     elif op == 16:
         print("--"*20)
-        modificar_reclamacion()
+        modificar_reclamo()
         print("--"*20)
     elif op == 17:
         print("--"*20)
@@ -105,3 +111,5 @@ while True:
         print("Adios!!")
         print("--"*20)
         break
+
+guardar_datos(datos, ruta_base_de_datos)
