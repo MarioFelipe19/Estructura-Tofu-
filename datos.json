@@ -44,23 +44,23 @@
         }
     ],
     "reclamo": [
-        
         {
             "nombre_cliente": "mario",
             "documento_cliente": "1",
-            "nombre": "queja",
-            "contenido": "no me funciona el telefono",
+            "nombre": "queja servicio malo y pesimo ",
+            "contenido": "un muy mal servcio ",
             "numero": 1
         }
     ],
-    "suegerencia": [
+    "sugerencia": [
         {
-            "nombre": "mejorar servicio",
-            "contenido": "mejorar la atencion prestada",
-            "numero": "1",
             "nombre_cliente": "mario",
-            "docuemento_cliente": "11111111"
+            "documento_cliente": "1",
+            "nombre": "mejorar tv",
+            "contenido": "mejorar el sevicio de tv",
+            "numero": 2
         }
+        
     ],
     "venta": [
         {

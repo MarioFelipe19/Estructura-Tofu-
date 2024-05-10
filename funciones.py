@@ -78,7 +78,6 @@ def modificar_usuario(datos):
     return datos
             
 
-
 def agregar_producto(datos):
     datos = dict(datos)
     producto = {}
@@ -116,6 +115,7 @@ def buscar_producto(datos):
     print("Tipo de producto invalido!")
     print("__"*10)
 
+
 def eliminar_producto(datos):
     datos = dict(datos)
     referencia = input("Ingrese la referencia del producto a eliminar: ")
@@ -131,6 +131,7 @@ def eliminar_producto(datos):
     print("Producto no existe!")
     print("__"*10)
     return datos
+
 
 def modificar_producto(datos):
     datos = dict(datos)
@@ -150,6 +151,7 @@ def modificar_producto(datos):
     print("__"*10)
     return datos
 
+
 def agregar_servicio(datos):
     datos = dict(datos)
     servicio = {}
@@ -161,6 +163,7 @@ def agregar_servicio(datos):
     print("Servicio registrado con exito!")
     print("--"*13)
     return datos
+
 
 def buscar_servicio(datos):
     datos = dict(datos)
@@ -184,6 +187,7 @@ def buscar_servicio(datos):
     print("Tipo de servicio invalido!")
     print("__"*10)
 
+
 def eliminar_servicio(datos):
     datos = dict(datos)
     referencia = input("Ingrese la referencia del servicio a eliminar: ")
@@ -199,6 +203,7 @@ def eliminar_servicio(datos):
     print("Servicio no existe!")
     print("__"*10)
     return datos
+
 
 def modificar_servicio(datos):
     datos = dict(datos)
@@ -216,6 +221,7 @@ def modificar_servicio(datos):
     print("Producto no existe!")
     print("__"*10)
     return datos
+
 
 def agregar_reclamo(datos):
     datos = dict(datos)
@@ -267,25 +273,131 @@ def buscar_reclamo(datos):
     print("__"*10)
 
 
+def eliminar_reclamo(datos):
+    datos = dict(datos)
+    documento = input("Ingrese el documento de usario  para eliminar reclamo: ")
+    numero = int(input("Ingrese el numero de la queja para eliminar reclamo: "))
+    for i in range(len(datos["reclamo"])):
+        if datos["reclamo"][i]["documento_cliente"] == documento and datos["reclamo"][i]["numero"] == numero:
+            datos["reclamo"].pop(i)
+            print("__"*10)
+            print("\n""Reclamo  eliminado!")
+            print("__"*10)
+            return datos
+        
+    print("__"*10)
+    print("Reclamo no existe!")
+    print("__"*10)
+    return datos
 
 
-def eliminar_reclamo():
-    print("hola7")
+def modificar_reclamo(datos):
+    datos = dict(datos)
+    documento = input("Ingrese el documento de usario  para modificar reclamo: ")
+    numero = int(input("Ingrese el numero de la queja para modificar reclamo: "))
+    for i in range(len(datos["reclamo"])):
+        if datos["reclamo"][i]["documento_cliente"] == documento and datos["reclamo"][i]["numero"] == numero:
+            datos["reclamo"][i]["nombre"] = input("Ingrese el nuevo nombre de la reclamo: ")
+            datos["reclamo"][i]["contenido"] = input("Ingrese el nuevo contenido de la reclamo: ")
+            print("--"*13)
+            print("Reclamo modificado con exito!")
+            print("--"*13)
+            return datos
+        
+    print("__"*10)
+    print("Reclamo no existe!")
+    print("__"*10)
+    return datos  
 
-def modificar_reclamo():
-    print("hola8")
 
-def agregar_sugerencia():
-    print("hola9")
+def agregar_sugerencia(datos):
+    datos = dict(datos)
+    sugerencia = {}
+    documento = input("Ingrese el documento del usuario: ")
+    for i in range(len(datos["usuario"])):
+        if datos["usuario"][i]["documento"] == documento:
+            sugerencia["nombre_cliente"]  = datos["usuario"][i]["nombre"]
+            sugerencia["documento_cliente"]  = documento
+            sugerencia["nombre"]  = input("Ingrese el nombre de la sugerencia: ")
+            sugerencia["contenido"]  = input("Ingrese el contenido de la sugerencia: ")
+            sugerencia["numero"]  = int(input("Ingrese el numero de la sugerencia: "))
+            datos["sugerencia"].append(sugerencia)
+            print("--"*13)
+            print("Sugerencia registrado con exito!")
+            print("--"*13)
+            return datos
+    
+    print("__"*10)
+    print("Documento invalido!")
+    print("Sugerencia invalido!")
+    print("__"*10)
 
-def buscar_sugerencia():
-    print("hola10")
 
-def eliminar_sugerencia():
-    print("hola11")
+def buscar_sugerencia(datos):
+    datos = dict(datos)
+    op = int(input("Buscar por 1. Tipo Sugerencia, 2. Lista Sugerencias: "))
+    if op == 1:
+        documento = input("Ingrese el documento del usuario para buscar la Sugerencia: ")
+        numero = int(input("Ingrese el  numero de la Sugerencia: "))
+        for i in range(len(datos["sugerencia"])):
+            if datos["sugerencia"][i]["documento_cliente"] == documento and datos["sugerencia"][i]["numero"] == numero:
+                print("__"*10)
+                print("\n""Nombre de usuario:",datos["sugerencia"][i]["nombre_cliente"],"\n" "Documento de usuario:", datos["sugerencia"][i]["documento_cliente"],"\n""Nombre de sugerencia:",datos["sugerencia"][i]["nombre"],"\n" "Contenido:",datos["sugerencia"][i]["contenido"],"\n" "Numero de la sugerencia:",datos["sugerencia"][i]["numero"])
+                print("__"*10)
+                return
+    elif op == 2:
+        while True:
+            documento = input("Ingrese el documento del usuario para buscar de la sugerencia: ")
+            for i in range(len(datos["sugerencia"])):
+                if datos["sugerencia"][i]["documento_cliente"] == documento:
+                    print("__"*10)
+                    print("\n""Nombre de usuario:",datos["sugerencia"][i]["nombre_cliente"],"\n" "Documento de usuario:", datos["sugerencia"][i]["documento_cliente"],"\n""Nombre de sugerencia:",datos["sugerencia"][i]["nombre"],"\n" "Contenido:",datos["sugerencia"][i]["contenido"],"\n" "Numero de la sugerencia:",datos["sugerencia"][i]["numero"])
+                    print("__"*10)
+                return
+                
+        
+    print("__"*10)
+    print("Sugerencia invalido!")
+    print("__"*10)
+        
+    
+        
 
-def modificar_sugerencia():
-    print("hola12")
+def eliminar_sugerencia(datos):
+
+    datos = dict(datos)
+    documento = input("Ingrese el documento de usario  para eliminar sugerencia: ")
+    numero = int(input("Ingrese el numero de la queja para eliminar sugerencia: "))
+    for i in range(len(datos["sugerencia"])):
+        if datos["sugerencia"][i]["documento_cliente"] == documento and datos["sugerencia"][i]["numero"] == numero:
+            datos["sugerencia"].pop(i)
+            print("__"*10)
+            print("\n""Sugerencia  eliminado!")
+            print("__"*10)
+            return datos
+        
+    print("__"*10)
+    print("Sugerencia no existe!")
+    print("__"*10)
+    return datos
+
+def modificar_sugerencia(datos):
+    datos = dict(datos)
+    documento = input("Ingrese el documento de usario  para modificar la sugerencia: ")
+    numero = int(input("Ingrese el numero de la queja para modificar la sugerencia: "))
+    for i in range(len(datos["sugerencia"])):
+        if datos["sugerencia"][i]["documento_cliente"] == documento and datos["sugerencia"][i]["numero"] == numero:
+            datos["sugerencia"][i]["nombre"] = input("Ingrese el nuevo nombre de la sugerencia: ")
+            datos["sugerencia"][i]["contenido"] = input("Ingrese el nuevo contenido de la sugerencia: ")
+            print("--"*13)
+            print("sugerencia modificado con exito!")
+            print("--"*13)
+            return datos
+        
+    print("__"*10)
+    print("sugerencia no existe!")
+    print("__"*10)
+    return datos 
 
 def agregar_venta():
     print("hola21")

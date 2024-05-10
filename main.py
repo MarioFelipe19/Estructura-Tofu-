@@ -68,27 +68,27 @@ while True:
         print("--"*20)
     elif op == 15:
         print("--"*20)
-        eliminar_reclamo()
+        datos = eliminar_reclamo(datos)
         print("--"*20)
     elif op == 16:
         print("--"*20)
-        modificar_reclamo()
+        datos = modificar_reclamo(datos)
         print("--"*20)
     elif op == 17:
         print("--"*20)
-        agregar_sugerencia()
+        datos = agregar_sugerencia(datos)
         print("--"*20)
     elif op == 18:
         print("--"*20)
-        buscar_sugerencia()
+        buscar_sugerencia(datos)
         print("--"*20)
     elif op == 19:
         print("--"*20)
-        eliminar_sugerencia()
+        datos = eliminar_sugerencia(datos)
         print("--"*20)
     elif op == 20:
         print("--"*20)
-        modificar_sugerencia()
+        datos = modificar_sugerencia(datos)
         print("--"*20)
     elif op == 21:
         print("--"*20)
