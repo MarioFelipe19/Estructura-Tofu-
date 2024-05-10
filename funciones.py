@@ -79,11 +79,36 @@ def modificar_usuario(datos):
             
 
 
-def agregar_producto():
-    print("hola13")
+def agregar_producto(datos):
+    datos = dict(datos)
+    producto = {}
+    producto["tipo"] = input("Ingrese el tipo: ")
+    producto["marca"] = input("Ingrese la marca: ")
+    producto["referencia"] = input("Ingrese la referencia: ")
+    producto["cantidad"] = int(input("Ingrse la cantidad: "))
+    producto["costo"] = float(input("Ingrse el costo: "))
+    datos["producto"].append(producto)
+    print("--"*13)
+    print("\n""Producto registrado con exito!")
+    print("--"*13)
+    return datos
 
-def buscar_producto():
-    print("hola14")
+
+def buscar_producto(datos):
+    datos = dict(datos)
+    op = int(input("Buscar por 1. Tipo producto, 2. Lista producto"))
+    if op == 1:
+        documento = input("Ingrese el documento del usuario a buscar: ")
+        for i in range(len(datos["usuario"])):
+            if datos["usuario"][i]["documento"] == documento:
+    elif op == 2:
+        while True:
+            for i in range(len(datos["producto"])):
+                print("__"*10)
+                print("\n""Tipo:",datos["producto"][i]["tipo"],"\n" "Marca:", datos["producto"][i]["marca"],"\n""Referencia:",datos["producto"][i]["referencia"],"\n" "Cantidad:",datos["producto"][i]["cantidad"],"\n" "Costo:",datos["producto"][i]["costo"])
+                print("__"*10)
+            return 
+    
 
 def eliminar_producto():
     print("hola15")

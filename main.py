@@ -28,11 +28,11 @@ while True:
         print("--"*20)
     elif op == 5:
         print("--"*20)
-        agregar_producto()
+        datos = agregar_producto(datos)
         print("--"*20)
     elif op == 6:
         print("--"*20)
-        buscar_producto()
+        buscar_producto(datos)
         print("--"*20)
     elif op == 7:
         print("--"*20)

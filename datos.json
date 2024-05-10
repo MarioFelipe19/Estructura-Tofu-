@@ -9,12 +9,12 @@
             "categoria": 1
         },
         {
-            "nombre": "vanesa",
+            "nombre": "vanessa martinez ",
             "documento": "2",
-            "direccion": "calle 3",
-            "telefono": "235656",
-            "edad": 66,
-            "categoria": 3
+            "direccion": "calle 2",
+            "telefono": "1234567",
+            "edad": 33,
+            "categoria": 2
         }
     ],
     "producto": [
@@ -22,8 +22,15 @@
             "tipo": "telefono",
             "marca": "xiaomi",
             "referencia": "note10",
-            "cantida": "10",
-            "costo": "500000"
+            "cantidad": 10,
+            "costo": 500000
+        },
+        {
+            "tipo": "tablet",
+            "marca": "tcl",
+            "referencia": "a1",
+            "cantidad": 20,
+            "costo": 500000.0
         }
     ],
     "servicio": [
