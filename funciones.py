@@ -399,8 +399,32 @@ def modificar_sugerencia(datos):
     print("__"*10)
     return datos 
 
-def agregar_venta():
-    print("hola21")
+def agregar_venta(datos):
+    datos = dict(datos)
+    venta = {}
+    documento = input("Ingrese el documento de usuario: ")
+    for i in range(len(datos["usuario"])):
+        if datos["usuario"][i]["documento"] == documento:
+            op = input("Ingrese 1. para comprar produto o 2. para coprar servicio: ")
+            if op == 1:
+                tipo = input("Ingrese el producto: ")
+                for i in range(len(datos["producto"])):
+                    if datos["producto"][i]["tipo"] == tipo:
+                        venta["venta"][i]["tipo"] = datos["producto"][i]["tipo"]
+                        venta["venta"][i]["marca"] = datos["producto"][i]["marca"]
+                        venta["venta"][i]["referencia"] = datos["producto"][i]["referencia"]
+                        venta["venta"][i]["cantida"] = int(input("Ingrese la cantidad a vender producto: "))
+                        datos["producto"][i]["cantidad"] -= venta["venta"][i]["cantida"]
+                        #continuara
+
+            elif op == 2:
+                tipo = input("Ingrese el servicio: ")
+                for i in range(len(datos["servicio"])):
+                    if datos["servicio"][i]["tipo"] == tipo:
+
+
+    
+    
 
 def buscar_venta():
     print("hola22")
