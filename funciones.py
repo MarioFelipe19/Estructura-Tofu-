@@ -1,3 +1,5 @@
+import random
+
 def agregar_usuario(datos):
     datos = dict(datos)
     usuario = {}
@@ -5,6 +7,8 @@ def agregar_usuario(datos):
     usuario["documento"] = input("Ingrese el documento: ")
     usuario["direccion"] = input("Ingrese la direccion: ")
     usuario["telefono"] = input("Ingrse el telefono de contacto: ")
+    usuario["promocion"] = ""
+
     try:
         usuario["edad"] = int(input("Ingrese la edad: "))
     except Exception:
@@ -17,23 +21,33 @@ def agregar_usuario(datos):
         usuario["categoria"] = 2
     elif op == 3:
         usuario["categoria"] = 3
+    
 
     datos["usuario"].append(usuario)
     print("--"*13)
-    print("usuario registrado con exito!")
+    print("Usuario registrado con exito!")
     print("--"*13)
     return datos
 
 def buscar_usuario(datos):
     datos = dict(datos)
-    documento = input("Ingrese el documento del usuario a buscar: ")
-    for i in range(len(datos["usuario"])):
-        if datos["usuario"][i]["documento"] == documento:
-            print("__"*10)
-            print("\n""Nombre:",datos["usuario"][i]["nombre"],"\n" "Edad:", datos["usuario"][i]["edad"],"\n""Documento:",datos["usuario"][i]["documento"],"\n" "Direccion:",datos["usuario"][i]["direccion"],"\n" "Telefono:",datos["usuario"][i]["telefono"],"\n" "Categoria:",datos["usuario"][i]["categoria"])
-            print("__"*10)
+    op = int(input("Buscar por 1. Tipo servicio, 2. Lista servicios: "))
+    if op == 1:
+        documento = input("Ingrese el documento del usuario a buscar: ")
+        for i in range(len(datos["usuario"])):
+            if datos["usuario"][i]["documento"] == documento:
+                print("__"*10)
+                print("\n""Nombre:",datos["usuario"][i]["nombre"],"\n" "Edad:", datos["usuario"][i]["edad"],"\n""Documento:",datos["usuario"][i]["documento"],"\n" "Direccion:",datos["usuario"][i]["direccion"],"\n" "Telefono:",datos["usuario"][i]["telefono"],"\n" "Categoria:",datos["usuario"][i]["categoria"],"\n" "Tienes una promocion de :",datos["usuario"][i]["promocion"])
+                print("__"*10)
+                return 
+    elif op == 2:
+        while True:
+            for i in range(len(datos["usuario"])):
+                print("__"*10)
+                print("\n""Nombre:",datos["usuario"][i]["nombre"],"\n" "Edad:", datos["usuario"][i]["edad"],"\n""Documento:",datos["usuario"][i]["documento"],"\n" "Direccion:",datos["usuario"][i]["direccion"],"\n" "Telefono:",datos["usuario"][i]["telefono"],"\n" "Categoria:",datos["usuario"][i]["categoria"],"\n" "Tienes una promocion de :",datos["usuario"][i]["promocion"])
+                print("__"*10)
             return 
-        
+
     print("__"*10)
     print("Documento invalido!")
     print("__"*10)
@@ -197,7 +211,7 @@ def eliminar_servicio(datos):
 
 def modificar_servicio(datos):
     datos = dict(datos)
-    referencia = input("Ingrese la referencia del producto a modificar: ")
+    referencia = input("Ingrese la referencia del servicio a modificar: ")
     for i in range(len(datos["servicio"])):
         if datos["servicio"][i]["referencia"] == referencia:
             datos["servicio"][i]["referencia"] = input("Ingrese la nueva referencia del servicio: ")
@@ -209,6 +223,78 @@ def modificar_servicio(datos):
         
     print("__"*10)
     print("Producto no existe!")
+    print("__"*10)
+    return datos
+
+def agregar_promocion(datos):
+    datos = dict(datos)
+    promocion = {}
+    promocion["tipo"] = input("Ingrese el tipo de promocion: ")
+    promocion["referencia"] = input("Ingrese la referencia de la promocion: ")
+    promocion["costo"] = float(input("Ingrese el costo de la promocion: "))
+    datos["promocion"].append(promocion)
+    print("--"*13)
+    print("Promocion registrado con exito!")
+    print("--"*13)
+    for i in range(len(datos["usuario"])):
+        for j in range(len(datos["venta"])):
+            if  datos["usuario"][i]["categoria"] == 3 and datos["venta"][j]["numero"] >= 3:
+                datos["usuario"][i]["promocion"] = promocion["referencia"]
+                #;random.randint(range(0,[i]+1))
+    return datos
+
+def buscar_promocion(datos):
+    datos = dict(datos)
+    op = int(input("Buscar por 1. Tipo promocion, 2. Lista promocion: "))
+    if op == 1:
+        tipo = input("Ingrese el tipo de promocion a buscar: ")
+        for i in range(len(datos["promocion"])):
+            if datos["promocion"][i]["tipo"] == tipo:
+                print("__"*10)
+                print("\n""Tipo:",datos["promocion"][i]["tipo"],"\n" "Referencia:", datos["promocion"][i]["referencia"],"\n""Costo:",datos["promocion"][i]["costo"],)
+                print("__"*10)
+                return
+    elif op == 2:
+        while True:
+            for i in range(len(datos["promocion"])):
+                print("__"*10)
+                print("\n""Tipo:",datos["promocion"][i]["tipo"],"\n" "Referencia:", datos["promocion"][i]["referencia"],"\n""Costo:",datos["promocion"][i]["costo"],)
+                print("__"*10)
+            return 
+    print("__"*10)
+    print("Tipo de promocion invalido!")
+    print("__"*10)
+
+def eliminar_promocion(datos):
+    datos = dict(datos)
+    referencia = input("Ingrese la referencia de la promocion a eliminar: ")
+    for i in range(len(datos["promocion"])):
+        if datos["promocion"][i]["referencia"] == referencia:
+            datos["promocion"].pop(i)
+            print("__"*10)
+            print("Promocion eliminado!")
+            print("__"*10)
+            return datos
+        
+    print("__"*10)
+    print("Promocion no existe!")
+    print("__"*10)
+    return datos
+
+def modificar_promocion(datos):
+    datos = dict(datos)
+    referencia = input("Ingrese la referencia de la promocion a modificar: ")
+    for i in range(len(datos["promocion"])):
+        if datos["promocion"][i]["referencia"] == referencia:
+            datos["promocion"][i]["referencia"] = input("Ingrese la nueva referencia de la promocion: ")
+            datos["promocion"][i]["costo"]  = float(input("Ingrese el nuevo costo de la promocion: "))
+            print("--"*13)
+            print("Promocion modificado con exito!")
+            print("--"*13)
+            return datos
+        
+    print("__"*10)
+    print("Promocion no existe!")
     print("__"*10)
     return datos
 
@@ -439,7 +525,7 @@ def agregar_venta(datos):
                         return datos
                     
         print("__"*10)
-        print("Sugerencia invalido!")
+        print("Venta invalido!")
         print("__"*10)
     
 def buscar_venta(datos):

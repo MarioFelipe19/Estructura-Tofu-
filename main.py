@@ -60,53 +60,69 @@ while True:
         print("--"*20)
     elif op == 13:
         print("--"*20)
-        datos = agregar_reclamo(datos)
+        datos = agregar_promocion(datos)
         print("--"*20)
     elif op == 14:
         print("--"*20)
-        buscar_reclamo(datos)
+        buscar_promocion(datos)
         print("--"*20)
     elif op == 15:
         print("--"*20)
-        datos = eliminar_reclamo(datos)
+        datos = eliminar_promocion(datos)
         print("--"*20)
     elif op == 16:
         print("--"*20)
-        datos = modificar_reclamo(datos)
+        datos = modificar_promocion(datos)
         print("--"*20)
     elif op == 17:
         print("--"*20)
-        datos = agregar_sugerencia(datos)
+        datos = agregar_reclamo(datos)
         print("--"*20)
     elif op == 18:
         print("--"*20)
-        buscar_sugerencia(datos)
+        buscar_reclamo(datos)
         print("--"*20)
     elif op == 19:
         print("--"*20)
-        datos = eliminar_sugerencia(datos)
+        datos = eliminar_reclamo(datos)
         print("--"*20)
     elif op == 20:
         print("--"*20)
-        datos = modificar_sugerencia(datos)
+        datos = modificar_reclamo(datos)
         print("--"*20)
     elif op == 21:
         print("--"*20)
-        datos = agregar_venta(datos)
+        datos = agregar_sugerencia(datos)
         print("--"*20)
     elif op == 22:
         print("--"*20)
-        buscar_venta(datos)
+        buscar_sugerencia(datos)
         print("--"*20)
     elif op == 23:
         print("--"*20)
-        datos = eliminar_venta(datos)
+        datos = eliminar_sugerencia(datos)
         print("--"*20)
     elif op == 24:
         print("--"*20)
-        datos = modificar_venta(datos)
+        datos = modificar_sugerencia(datos)
         print("--"*20)
     elif op == 25:
+        print("--"*20)
+        datos = agregar_venta(datos)
+        print("--"*20)
+    elif op == 26:
+        print("--"*20)
+        buscar_venta(datos)
+        print("--"*20)
+    elif op == 27:
+        print("--"*20)
+        datos = eliminar_venta(datos)
+        print("--"*20)
+    elif op == 28:
+        print("--"*20)
+        datos = modificar_venta(datos)
+        print("--"*20)
+    elif op == 29:
         print("--"*20)
         print("Adios!!")
         print("--"*20)
