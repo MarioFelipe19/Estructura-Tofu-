@@ -104,7 +104,7 @@ while True:
         print("--"*20)
     elif op == 24:
         print("--"*20)
-        modificar_venta()
+        datos = modificar_venta(datos)
         print("--"*20)
     elif op == 25:
         print("--"*20)

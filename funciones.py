@@ -399,7 +399,7 @@ def agregar_venta(datos):
                         venta["referencia"] = datos["producto"][j]["referencia"]
                         venta["cantidad"] = cantidad = int(input("Ingrese la cantidad a vender producto: "))
                         
-                        if cantidad < datos["producto"][j]["cantidad"]:
+                        if cantidad <= datos["producto"][j]["cantidad"]:
                             datos["producto"][j]["cantidad"] -= cantidad
                         else:
                             print("--"*10)
@@ -514,5 +514,63 @@ def eliminar_venta(datos):
     print("__"*10)
     return datos
 
-def modificar_venta():
-    print("hola24")
+def modificar_venta(datos):
+    datos = dict(datos)
+    op = int(input("Modificar por 1. Tipo Producto, 2. Tipo servicio: "))
+    if op == 1:
+        documento = input("Ingrese el documento del usuario para modificar la venta: ")
+        tipo = input("Ingrese el tipo de producto para modificar la venta: ")
+        referencia = input("Ingrese la referencia del servicio a modificar la venta: ")
+        numero = int(input("Ingrese el numero de la venta: "))
+        for i in range(len(datos["venta"])):
+            if datos["venta"][i]["documento_cliente"] == documento and datos["venta"][i]["tipo"] == tipo and datos["venta"][i]["referencia"] == referencia and datos["venta"][i]["numero"] == numero:
+                op2 = int(input("Modificar por 1. Sumar produtos, 2. Restar productos: "))
+                if op2 == 1:
+                    cantidad = int(input("Ingrese la cantidad de mas producto para agregar a la venta: "))
+                    for j in range(len(datos["producto"])):
+                        if cantidad <= datos["producto"][j]["cantidad"]:
+                            datos["producto"][j]["cantidad"] -= cantidad
+                            datos["venta"][j]["cantidad"] += cantidad
+                            datos["venta"][i]["costo"] = datos["producto"][j]["costo"] 
+                            datos["venta"][i]["costo"] *= datos["venta"][j]["cantidad"]
+                            print("--"*13)
+                            print("Venta modificado con exito!")
+                            print("--"*13)
+                            return datos
+                elif op2 ==2:
+                    cantidad = int(input("Ingrese la cantidad de menos producto para quitarle a la venta: "))
+                    for j in range(len(datos["producto"])):
+                        if cantidad <= datos["producto"][j]["cantidad"]:
+                            datos["producto"][j]["cantidad"] += cantidad
+                            datos["venta"][j]["cantidad"] -= cantidad
+                            datos["venta"][i]["costo"] = datos["producto"][j]["costo"] 
+                            datos["venta"][i]["costo"] *= cantidad
+                            print("--"*13)
+                            print("Venta modificado con exito!")
+                            print("--"*13)
+                            return datos
+    elif op == 2:
+        documento = input("Ingrese el documento del usuario para modificar la venta: ")
+        tipo = input("Ingrese el tipo de servicio para modificar la venta: ")
+        referencia = input("Ingrese la referencia del servicio a modificar la venta: ")
+        numero = int(input("Ingrese el numero de la venta: "))
+        for i in range(len(datos["venta"])):               
+            if datos["venta"][i]["documento_cliente"] == documento and datos["venta"][i]["tipo"] == tipo and datos["venta"][i]["referencia"] == referencia and datos["venta"][i]["numero"] == numero:
+                datos["venta"][i]["cantidad"] = cantidad = int(input("Ingrese la cantidad de servcios para modificar la venta: "))
+                for j in range(len(datos["servicio"])):  
+                    datos["venta"][i]["costo"] = datos["servicio"][j]["costo"] 
+                    datos["venta"][i]["costo"] *= cantidad
+                    print("--"*13)
+                    print("Venta modificado con exito!")
+                    print("--"*13)
+                    return datos
+            
+    print("__"*10)
+    print("Venta no existe!")
+    print("__"*10)
+    return datos
+    
+
+
+            
+            
