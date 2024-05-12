@@ -92,7 +92,7 @@ while True:
         print("--"*20)
     elif op == 21:
         print("--"*20)
-        agregar_venta()
+        datos = agregar_venta(datos)
         print("--"*20)
     elif op == 22:
         print("--"*20)

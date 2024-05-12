@@ -22,7 +22,7 @@
             "tipo": "tablet",
             "marca": "tcl",
             "referencia": "a2",
-            "cantidad": 40,
+            "cantidad": 26,
             "costo": 400000.0
         }
     ],
@@ -50,6 +50,13 @@
             "nombre": "queja servicio malo y pesimo ",
             "contenido": "un muy mal servcio ",
             "numero": 1
+        },
+        {
+            "nombre_cliente": "vanessa martinez ",
+            "documento_cliente": "2",
+            "nombre": "produto malo",
+            "contenido": "el producto no me funciono ",
+            "numero": 3
         }
     ],
     "sugerencia": [
@@ -60,24 +67,26 @@
             "contenido": "mejorar el sevicio de tv",
             "numero": 2
         }
-        
     ],
     "venta": [
         {
-            "tipo": "telefono",
-            "marca": "xiaomi",
-            "referencia": "note10",
-            "cantida": "10",
-            "costo": "500000",
-            "nombre_cliente": "mario",
-            "docuemento_cliente": "11111111"
+            "tipo": "tablet",
+            "marca": "tcl",
+            "referencia": "a2",
+            "cantidad": 4,
+            "costo": 1600000.0,
+            "nombre_cliente": "vanessa martinez ",
+            "docuemento_cliente": "2",
+            "numero": 2
         },
         {
             "tipo": "internet",
-            "referencia": "fibra",
-            "costo": "50000",
+            "referencia": "adsl 10mb",
+            "cantidad": 1,
+            "costo": 20000.0,
             "nombre_cliente": "mario",
-            "docuemento_cliente": "11111111"
+            "docuemento_cliente": "1",
+            "numero": 1
         }
     ]
 }

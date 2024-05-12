@@ -38,7 +38,6 @@ def buscar_usuario(datos):
     print("Documento invalido!")
     print("__"*10)
             
-
 def eliminar_usuario(datos):
     datos = dict(datos)
     documento = input("Ingrese el docuemto del usuario a eliminar: ")
@@ -55,7 +54,6 @@ def eliminar_usuario(datos):
     print("__"*10)
     return datos
             
-
 def modificar_usuario(datos):
     datos = dict(datos)
     documento = input("Ingrese el docuemto del usuario a modificar: ")
@@ -77,7 +75,6 @@ def modificar_usuario(datos):
     print("__"*10)
     return datos
             
-
 def agregar_producto(datos):
     datos = dict(datos)
     producto = {}
@@ -91,7 +88,6 @@ def agregar_producto(datos):
     print("Producto registrado con exito!")
     print("--"*13)
     return datos
-
 
 def buscar_producto(datos):
     datos = dict(datos)
@@ -115,7 +111,6 @@ def buscar_producto(datos):
     print("Tipo de producto invalido!")
     print("__"*10)
 
-
 def eliminar_producto(datos):
     datos = dict(datos)
     referencia = input("Ingrese la referencia del producto a eliminar: ")
@@ -131,7 +126,6 @@ def eliminar_producto(datos):
     print("Producto no existe!")
     print("__"*10)
     return datos
-
 
 def modificar_producto(datos):
     datos = dict(datos)
@@ -151,7 +145,6 @@ def modificar_producto(datos):
     print("__"*10)
     return datos
 
-
 def agregar_servicio(datos):
     datos = dict(datos)
     servicio = {}
@@ -163,7 +156,6 @@ def agregar_servicio(datos):
     print("Servicio registrado con exito!")
     print("--"*13)
     return datos
-
 
 def buscar_servicio(datos):
     datos = dict(datos)
@@ -187,7 +179,6 @@ def buscar_servicio(datos):
     print("Tipo de servicio invalido!")
     print("__"*10)
 
-
 def eliminar_servicio(datos):
     datos = dict(datos)
     referencia = input("Ingrese la referencia del servicio a eliminar: ")
@@ -203,7 +194,6 @@ def eliminar_servicio(datos):
     print("Servicio no existe!")
     print("__"*10)
     return datos
-
 
 def modificar_servicio(datos):
     datos = dict(datos)
@@ -221,7 +211,6 @@ def modificar_servicio(datos):
     print("Producto no existe!")
     print("__"*10)
     return datos
-
 
 def agregar_reclamo(datos):
     datos = dict(datos)
@@ -244,7 +233,6 @@ def agregar_reclamo(datos):
     print("Documento invalido!")
     print("Reclamo invalido!")
     print("__"*10)
-
 
 def buscar_reclamo(datos):
     datos = dict(datos)
@@ -272,7 +260,6 @@ def buscar_reclamo(datos):
     print("Reclamo invalido!")
     print("__"*10)
 
-
 def eliminar_reclamo(datos):
     datos = dict(datos)
     documento = input("Ingrese el documento de usario  para eliminar reclamo: ")
@@ -289,7 +276,6 @@ def eliminar_reclamo(datos):
     print("Reclamo no existe!")
     print("__"*10)
     return datos
-
 
 def modificar_reclamo(datos):
     datos = dict(datos)
@@ -308,7 +294,6 @@ def modificar_reclamo(datos):
     print("Reclamo no existe!")
     print("__"*10)
     return datos  
-
 
 def agregar_sugerencia(datos):
     datos = dict(datos)
@@ -331,7 +316,6 @@ def agregar_sugerencia(datos):
     print("Documento invalido!")
     print("Sugerencia invalido!")
     print("__"*10)
-
 
 def buscar_sugerencia(datos):
     datos = dict(datos)
@@ -360,9 +344,6 @@ def buscar_sugerencia(datos):
     print("Sugerencia invalido!")
     print("__"*10)
         
-    
-        
-
 def eliminar_sugerencia(datos):
 
     datos = dict(datos)
@@ -401,33 +382,81 @@ def modificar_sugerencia(datos):
 
 def agregar_venta(datos):
     datos = dict(datos)
+    costo = float
+    pcosto = float
     venta = {}
     documento = input("Ingrese el documento de usuario: ")
     for i in range(len(datos["usuario"])):
         if datos["usuario"][i]["documento"] == documento:
-            op = input("Ingrese 1. para comprar produto o 2. para coprar servicio: ")
+            op = int(input("Ingrese 1. para comprar produto o 2. para coprar servicio: "))
             if op == 1:
-                tipo = input("Ingrese el producto: ")
-                for i in range(len(datos["producto"])):
-                    if datos["producto"][i]["tipo"] == tipo:
-                        venta["venta"][i]["tipo"] = datos["producto"][i]["tipo"]
-                        venta["venta"][i]["marca"] = datos["producto"][i]["marca"]
-                        venta["venta"][i]["referencia"] = datos["producto"][i]["referencia"]
-                        venta["venta"][i]["cantida"] = int(input("Ingrese la cantidad a vender producto: "))
-                        datos["producto"][i]["cantidad"] -= venta["venta"][i]["cantida"]
-                        #continuara
+                tipo = input("Ingrese el tipo de producto: ")
+                referencia = input("Ingrese la referencia del producto: ")
+                for j in range(len(datos["producto"])):
+                    if datos["producto"][j]["tipo"] == tipo and datos["producto"][j]["referencia"] == referencia:
+                        venta["tipo"] = datos["producto"][j]["tipo"]
+                        venta["marca"] = datos["producto"][j]["marca"]
+                        venta["referencia"] = datos["producto"][j]["referencia"]
+                        venta["cantidad"] = cantidad = int(input("Ingrese la cantidad a vender producto: "))
+                        
+                        if cantidad < datos["producto"][j]["cantidad"]:
+                            datos["producto"][j]["cantidad"] -= cantidad
+                        else:
+                            print("--"*10)
+                            print("Stock invalido!!")   
+                            print("--"*10)
+                            break
+                        venta["costo"] = datos["producto"][j]["costo"] 
+                        venta["costo"] *= cantidad
+                        venta["nombre_cliente"] = datos["usuario"][i]["nombre"]
+                        venta["docuemento_cliente"] = datos["usuario"][i]["documento"]
+                        numero = int(input("Ingrese el numero de la venta: "))
+                        venta["numero"] = numero
+                        datos["venta"].append(venta)
+                        print("--"*13)
+                        print("Venta registrado con exito!")
+                        print("--"*13)
+                        return datos
 
             elif op == 2:
                 tipo = input("Ingrese el servicio: ")
                 for i in range(len(datos["servicio"])):
                     if datos["servicio"][i]["tipo"] == tipo:
-
-
+                        venta["tipo"] = datos["servicio"][i]["tipo"]
+                        venta["referencia"] = datos["servicio"][i]["referencia"]
+                        venta["cantidad"] = cantidad  = int(input("Ingrese la cantidad a vender servicio: "))
+                        venta["costo"] = datos["servicio"][i]["costo"] 
+                        venta["costo"] *= cantidad
+                        venta["nombre_cliente"] = datos["usuario"][i]["nombre"]
+                        venta["docuemento_cliente"] = datos["usuario"][i]["documento"]
+                        numero = int(input("Ingrese el numero de la venta: "))
+                        venta["numero"] = numero
+                        datos["venta"].append(venta)
+                        print("--"*13)
+                        print("Venta registrado con exito!")
+                        print("--"*13)
+                        return datos
+                    
+        print("__"*10)
+        print("Sugerencia invalido!")
+        print("__"*10)
     
-    
+def buscar_venta(datos):
+    datos = dict(datos)
+    op = int(input("Buscar por 1. Producto, 2. Servicio: "))
+    if op == 1:
+        op2 = int(input("Buscar por 1. Tipo venta, 2. Lista venta: "))
+        if op2 == 1:
+            documento = input("Ingrese el documento del usuario para buscar la venta: ")
+            referencia = input("Ingrese la referencia del producto a buscar la venta: ")
+            numero = input("Ingrese el numero de la venta: ")
+            for i in range(len(datos["venta"])):
+                if datos["venta"][i]["documento_cliente"] == documento and datos["venta"][i]["referencia"] == referencia and datos["venta"][i]["numero"] == numero:
+                    print("__"*10)
+                    print("\n""Tipo de producto:",datos["venta"][i]["tipo"],"\n" "Referencia de producto:", datos["venta"][i]["referencia"],"\n""Cantidad de producto:",datos["venta"][i]["cantidad"],"\n" "Costo de producto:",datos["venta"][i]["costo"],"\n" "Nombre de usuario:",datos["venta"][i]["nombre_cliente"],"\n" "Documento cliente:",datos["venta"][i]["docuemento_cliente"])
+                    print("__"*10)
+                    return
 
-def buscar_venta():
-    print("hola22")
 
 def eliminar_venta():
     print("hola23")
