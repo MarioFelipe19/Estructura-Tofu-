@@ -96,11 +96,11 @@ while True:
         print("--"*20)
     elif op == 22:
         print("--"*20)
-        buscar_venta()
+        buscar_venta(datos)
         print("--"*20)
     elif op == 23:
         print("--"*20)
-        eliminar_venta()
+        datos = eliminar_venta(datos)
         print("--"*20)
     elif op == 24:
         print("--"*20)

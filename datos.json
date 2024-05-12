@@ -76,16 +76,16 @@
             "cantidad": 4,
             "costo": 1600000.0,
             "nombre_cliente": "vanessa martinez ",
-            "docuemento_cliente": "2",
+            "documento_cliente": "2",
             "numero": 2
         },
         {
             "tipo": "internet",
             "referencia": "adsl 10mb",
-            "cantidad": 1,
-            "costo": 20000.0,
+            "cantidad": 3,
+            "costo": 60000.0,
             "nombre_cliente": "mario",
-            "docuemento_cliente": "1",
+            "documento_cliente": "1",
             "numero": 1
         }
     ]
