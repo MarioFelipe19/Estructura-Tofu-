@@ -540,9 +540,9 @@ def agregar_venta(datos):
                         print("--"*13)
                         return datos
                     
-        print("__"*10)
-        print("Venta invalido!")
-        print("__"*10)
+    print("__"*10)
+    print("Venta invalido!")
+    print("__"*10)
     
 def buscar_venta(datos):
     datos = dict(datos)
