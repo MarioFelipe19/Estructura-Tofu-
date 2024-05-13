@@ -624,18 +624,18 @@ def modificar_venta(datos):
     if op == 1:
         documento = input("Ingrese el documento del usuario para modificar la venta: ")
         tipo = input("Ingrese el tipo de producto para modificar la venta: ")
-        referencia = input("Ingrese la referencia del servicio a modificar la venta: ")
+        referencia = input("Ingrese la referencia del producto a modificar la venta: ")
         numero = int(input("Ingrese el numero de la venta: "))
         for i in range(len(datos["venta"])):
-            if datos["venta"][i]["documento_cliente"] == documento and datos["venta"][i]["tipo"] == tipo and datos["venta"][i]["referencia"] == referencia and datos["venta"][i]["numero"] == numero:
-                op2 = int(input("Modificar por 1. Sumar produtos, 2. Restar productos: "))
-                if op2 == 1:
-                    cantidad = int(input("Ingrese la cantidad de mas producto para agregar a la venta: "))
-                    for j in range(len(datos["producto"])):
-                        if cantidad <= datos["producto"][j]["cantidad"]:
-                            datos["producto"][j]["cantidad"] -= cantidad
+            for i in range(len(datos["producto"])):
+                if datos["venta"][i]["documento_cliente"] == documento and  datos["venta"][i]["tipo"] == tipo  and datos["venta"][i]["referencia"] == referencia and datos["venta"][i]["numero"] == numero:
+                    op2 = int(input("Modificar por 1. Sumar produtos, 2. Restar productos: "))
+                    if op2 == 1:
+                        cantidad = int(input("Ingrese la cantidad de mas producto para agregar a la venta: "))
+                        if cantidad <= datos["producto"][i]["cantidad"]:
+                            datos["producto"][i]["cantidad"] -= cantidad
                             datos["venta"][i]["cantidad"] += cantidad
-                            datos["venta"][i]["costo"] = datos["producto"][j]["costo"] 
+                            datos["venta"][i]["costo"] = datos["producto"][i]["costo"] 
                             datos["venta"][i]["costo"] *= datos["venta"][i]["cantidad"]
                             fecha = datetime.datetime.now()
                             datos["venta"][i]["fecha_modificacion"] = fecha.strftime("%Y-%m-%d %H:%M:%S")
@@ -643,20 +643,22 @@ def modificar_venta(datos):
                             print("Venta modificado con exito!")
                             print("--"*13)
                             return datos
-                elif op2 ==2:
-                    cantidad = int(input("Ingrese la cantidad de menos producto para quitarle a la venta: "))
-                    for j in range(len(datos["producto"])):
-                        if cantidad <= datos["producto"][j]["cantidad"]:
-                            datos["producto"][j]["cantidad"] += cantidad
-                            datos["venta"][i]["cantidad"] -= cantidad
-                            datos["venta"][i]["costo"] = datos["producto"][j]["costo"] 
-                            datos["venta"][i]["costo"] *= cantidad
-                            fecha = datetime.datetime.now()
-                            datos["venta"][i]["fecha_modificacion"] = fecha.strftime("%Y-%m-%d %H:%M:%S")
-                            print("--"*13)
-                            print("Venta modificado con exito!")
-                            print("--"*13)
-                            return datos
+                        
+                    elif op2 ==2:
+                        cantidad = int(input("Ingrese la cantidad de menos producto para quitarle a la venta: "))
+                        for j in range(len(datos["producto"])):
+                        
+                            if cantidad <= datos["producto"][j]["cantidad"]:
+                                datos["producto"][i]["cantidad"] += cantidad
+                                datos["venta"][i]["cantidad"] -= cantidad
+                                datos["venta"][i]["costo"] = datos["producto"][i]["costo"] 
+                                datos["venta"][i]["costo"] *= datos["venta"][i]["cantidad"]
+                                fecha = datetime.datetime.now()
+                                datos["venta"][i]["fecha_modificacion"] = fecha.strftime("%Y-%m-%d %H:%M:%S")
+                                print("--"*13)
+                                print("Venta modificado con exito!")
+                                print("--"*13)
+                                return datos
     elif op == 2:
         documento = input("Ingrese el documento del usuario para modificar la venta: ")
         tipo = input("Ingrese el tipo de servicio para modificar la venta: ")
