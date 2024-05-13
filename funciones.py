@@ -1,4 +1,5 @@
 import random
+import datetime
 
 def agregar_usuario(datos):
     datos = dict(datos)
@@ -7,8 +8,7 @@ def agregar_usuario(datos):
     usuario["documento"] = input("Ingrese el documento: ")
     usuario["direccion"] = input("Ingrese la direccion: ")
     usuario["telefono"] = input("Ingrse el telefono de contacto: ")
-    usuario["promocion"] = ""
-
+    
     try:
         usuario["edad"] = int(input("Ingrese la edad: "))
     except Exception:
@@ -21,7 +21,9 @@ def agregar_usuario(datos):
         usuario["categoria"] = 2
     elif op == 3:
         usuario["categoria"] = 3
-    
+
+    usuario["promocion"] = ""
+    usuario["costo"] = 0
 
     datos["usuario"].append(usuario)
     print("--"*13)
@@ -35,16 +37,17 @@ def buscar_usuario(datos):
     if op == 1:
         documento = input("Ingrese el documento del usuario a buscar: ")
         for i in range(len(datos["usuario"])):
-            if datos["usuario"][i]["documento"] == documento:
-                print("__"*10)
-                print("\n""Nombre:",datos["usuario"][i]["nombre"],"\n" "Edad:", datos["usuario"][i]["edad"],"\n""Documento:",datos["usuario"][i]["documento"],"\n" "Direccion:",datos["usuario"][i]["direccion"],"\n" "Telefono:",datos["usuario"][i]["telefono"],"\n" "Categoria:",datos["usuario"][i]["categoria"],"\n" "Tienes una promocion de :",datos["usuario"][i]["promocion"])
-                print("__"*10)
-                return 
+            for j in range(len(datos["venta"])):
+                if datos["usuario"][i]["documento"] == documento:
+                    print("__"*10)
+                    print("\n""Nombre:",datos["usuario"][i]["nombre"],"\n" "Edad:", datos["usuario"][i]["edad"],"\n""Documento:",datos["usuario"][i]["documento"],"\n" "Direccion:",datos["usuario"][i]["direccion"],"\n" "Telefono:",datos["usuario"][i]["telefono"],"\n" "Categoria:",datos["usuario"][i]["categoria"],"\n""--------------" "\n""Tienes una promocion de :",datos["usuario"][i]["promocion"],"\n" "Con costo de :",datos["usuario"][i]["costo"])
+                    print("__"*10)
+                    return 
     elif op == 2:
         while True:
             for i in range(len(datos["usuario"])):
                 print("__"*10)
-                print("\n""Nombre:",datos["usuario"][i]["nombre"],"\n" "Edad:", datos["usuario"][i]["edad"],"\n""Documento:",datos["usuario"][i]["documento"],"\n" "Direccion:",datos["usuario"][i]["direccion"],"\n" "Telefono:",datos["usuario"][i]["telefono"],"\n" "Categoria:",datos["usuario"][i]["categoria"],"\n" "Tienes una promocion de :",datos["usuario"][i]["promocion"])
+                print("\n""Nombre:",datos["usuario"][i]["nombre"],"\n" "Edad:", datos["usuario"][i]["edad"],"\n""Documento:",datos["usuario"][i]["documento"],"\n" "Direccion:",datos["usuario"][i]["direccion"],"\n" "Telefono:",datos["usuario"][i]["telefono"],"\n" "Categoria:",datos["usuario"][i]["categoria"],"\n" "Tienes una promocion de :",datos["usuario"][i]["promocion"],"\n" "Con costo de :",datos["usuario"][i]["costo"])
                 print("__"*10)
             return 
 
@@ -240,8 +243,9 @@ def agregar_promocion(datos):
         for j in range(len(datos["venta"])):
             if  datos["usuario"][i]["categoria"] == 3 and datos["venta"][j]["numero"] >= 3:
                 datos["usuario"][i]["promocion"] = promocion["referencia"]
+                datos["usuario"][i]["costo"] = promocion["costo"]
                 #;random.randint(range(0,[i]+1))
-    return datos
+                return datos
 
 def buscar_promocion(datos):
     datos = dict(datos)
@@ -291,7 +295,13 @@ def modificar_promocion(datos):
             print("--"*13)
             print("Promocion modificado con exito!")
             print("--"*13)
-            return datos
+            for i in range(len(datos["usuario"])):
+                for j in range(len(datos["venta"])):
+                    for i in range(len(datos["promocion"])):
+                        if  datos["usuario"][i]["categoria"] == 3 and datos["venta"][j]["numero"] >= 3:
+                            datos["usuario"][i]["promocion"] = datos["promocion"][i]["referencia"]
+                            datos["usuario"][i]["costo"] = datos["promocion"][i]["costo"]
+                            return datos
         
     print("__"*10)
     print("Promocion no existe!")
@@ -498,6 +508,9 @@ def agregar_venta(datos):
                         venta["documento_cliente"] = datos["usuario"][i]["documento"]
                         numero = int(input("Ingrese el numero de la venta: "))
                         venta["numero"] = numero
+                        fecha = datetime.datetime.now()
+                        venta["fecha"] = fecha.strftime("%Y-%m-%d %H:%M:%S")
+                        venta["fecha_modificacion"] = ""
                         datos["venta"].append(venta)
                         print("--"*13)
                         print("Venta registrado con exito!")
@@ -518,6 +531,9 @@ def agregar_venta(datos):
                         venta["documento_cliente"] = datos["usuario"][i]["documento"]
                         numero = int(input("Ingrese el numero de la venta: "))
                         venta["numero"] = numero
+                        fecha = datetime.datetime.now()
+                        venta["fecha"] = fecha.strftime("%Y-%m-%d %H:%M:%S")
+                        venta["fecha_modificacion"] = ""
                         datos["venta"].append(venta)
                         print("--"*13)
                         print("Venta registrado con exito!")
@@ -540,7 +556,7 @@ def buscar_venta(datos):
             for i in range(len(datos["venta"])):
                 if datos["venta"][i]["documento_cliente"] == documento and datos["venta"][i]["referencia"] == referencia and datos["venta"][i]["numero"] == numero:
                     print("__"*10)
-                    print("\n""Tipo de producto:",datos["venta"][i]["tipo"],"\n" "Marca de producto:", datos["venta"][i]["marca"],"\n" "Referencia de producto:", datos["venta"][i]["referencia"],"\n""Cantidad de producto:",datos["venta"][i]["cantidad"],"\n" "Costo de producto:",datos["venta"][i]["costo"],"\n" "Nombre de usuario:",datos["venta"][i]["nombre_cliente"],"\n" "Documento cliente:",datos["venta"][i]["documento_cliente"],"\n" "Numero de venta:", datos["venta"][i]["numero"])
+                    print("\n""Tipo de producto:",datos["venta"][i]["tipo"],"\n" "Marca de producto:", datos["venta"][i]["marca"],"\n" "Referencia de producto:", datos["venta"][i]["referencia"],"\n""Cantidad de producto:",datos["venta"][i]["cantidad"],"\n" "Costo de producto:",datos["venta"][i]["costo"],"\n" "Nombre de usuario:",datos["venta"][i]["nombre_cliente"],"\n" "Documento cliente:",datos["venta"][i]["documento_cliente"],"\n" "Numero de venta:", datos["venta"][i]["numero"],"\n" "Fecha de venta:", datos["venta"][i]["fecha"],"\n" "Feacha de modificacion venta:", datos["venta"][i]["fecha_modificacion"])
                     print("__"*10)
                     return
 
@@ -550,8 +566,10 @@ def buscar_venta(datos):
                 tipo = input("Ingrese el tipo de producto para buscar la venta: ")
                 for i in range(len(datos["venta"])):
                     if datos["venta"][i]["documento_cliente"] == documento and datos["venta"][i]["tipo"] == tipo:
-                        print("\n""Tipo de producto:",datos["venta"][i]["tipo"],"\n" "Marca de producto:", datos["venta"][i]["marca"],"\n" "Referencia de producto:", datos["venta"][i]["referencia"],"\n""Cantidad de producto:",datos["venta"][i]["cantidad"],"\n" "Costo de producto:",datos["venta"][i]["costo"],"\n" "Nombre de usuario:",datos["venta"][i]["nombre_cliente"],"\n" "Documento cliente:",datos["venta"][i]["documento_cliente"],"\n" "Numero de venta:", datos["venta"][i]["numero"])
-                    return
+                        print("__"*10)
+                        print("\n""Tipo de producto:",datos["venta"][i]["tipo"],"\n" "Marca de producto:", datos["venta"][i]["marca"],"\n" "Referencia de producto:", datos["venta"][i]["referencia"],"\n""Cantidad de producto:",datos["venta"][i]["cantidad"],"\n" "Costo de producto:",datos["venta"][i]["costo"],"\n" "Nombre de usuario:",datos["venta"][i]["nombre_cliente"],"\n" "Documento cliente:",datos["venta"][i]["documento_cliente"],"\n" "Numero de venta:", datos["venta"][i]["numero"],"\n" "Fecha de venta:", datos["venta"][i]["fecha"],"\n" "Feacha de modificacion venta:", datos["venta"][i]["fecha_modificacion"])
+                        print("__"*10)
+                return
     elif op ==2:
         op2 = int(input("Buscar por 1. Tipo venta, 2. Lista venta: "))
         if op2 == 1:
@@ -561,7 +579,7 @@ def buscar_venta(datos):
             for i in range(len(datos["venta"])):
                 if datos["venta"][i]["documento_cliente"] == documento and datos["venta"][i]["referencia"] == referencia and datos["venta"][i]["numero"] == numero:
                     print("__"*10)
-                    print("\n""Tipo de producto:",datos["venta"][i]["tipo"],"\n" "Referencia del servicio:", datos["venta"][i]["referencia"],"\n""Cantidad del servicio:",datos["venta"][i]["cantidad"],"\n" "Costo del servicio:",datos["venta"][i]["costo"],"\n" "Nombre de usuario:",datos["venta"][i]["nombre_cliente"],"\n" "Documento cliente:",datos["venta"][i]["documento_cliente"],"\n" "Numero de venta:", datos["venta"][i]["numero"])
+                    print("\n""Tipo de producto:",datos["venta"][i]["tipo"],"\n" "Referencia del servicio:", datos["venta"][i]["referencia"],"\n""Cantidad del servicio:",datos["venta"][i]["cantidad"],"\n" "Costo del servicio:",datos["venta"][i]["costo"],"\n" "Nombre de usuario:",datos["venta"][i]["nombre_cliente"],"\n" "Documento cliente:",datos["venta"][i]["documento_cliente"],"\n" "Numero de venta:", datos["venta"][i]["numero"],"\n" "Fecha de venta:", datos["venta"][i]["fecha"],"\n" "Feacha de modificacion venta:", datos["venta"][i]["fecha_modificacion"])
                     print("__"*10)
                     return
         elif op2 == 2:
@@ -572,7 +590,7 @@ def buscar_venta(datos):
                     if datos["venta"][i]["documento_cliente"] == documento and datos["venta"][i]["tipo"] == tipo:
                     
                         print("__"*10)
-                        print("\n""Tipo de producto:",datos["venta"][i]["tipo"],"\n" "Referencia del servicio:", datos["venta"][i]["referencia"],"\n""Cantidad del servicio:",datos["venta"][i]["cantidad"],"\n" "Costo del servicio:",datos["venta"][i]["costo"],"\n" "Nombre de usuario:",datos["venta"][i]["nombre_cliente"],"\n" "Documento cliente:",datos["venta"][i]["documento_cliente"],"\n" "Numero de venta:", datos["venta"][i]["numero"])
+                        print("\n""Tipo de producto:",datos["venta"][i]["tipo"],"\n" "Referencia del servicio:", datos["venta"][i]["referencia"],"\n""Cantidad del servicio:",datos["venta"][i]["cantidad"],"\n" "Costo del servicio:",datos["venta"][i]["costo"],"\n" "Nombre de usuario:",datos["venta"][i]["nombre_cliente"],"\n" "Documento cliente:",datos["venta"][i]["documento_cliente"],"\n" "Numero de venta:", datos["venta"][i]["numero"],"\n" "Fecha de venta:", datos["venta"][i]["fecha"],"\n" "Feacha de modificacion venta:", datos["venta"][i]["fecha_modificacion"])
                         print("__"*10)
                 return
 
@@ -616,9 +634,11 @@ def modificar_venta(datos):
                     for j in range(len(datos["producto"])):
                         if cantidad <= datos["producto"][j]["cantidad"]:
                             datos["producto"][j]["cantidad"] -= cantidad
-                            datos["venta"][j]["cantidad"] += cantidad
+                            datos["venta"][i]["cantidad"] += cantidad
                             datos["venta"][i]["costo"] = datos["producto"][j]["costo"] 
-                            datos["venta"][i]["costo"] *= datos["venta"][j]["cantidad"]
+                            datos["venta"][i]["costo"] *= datos["venta"][i]["cantidad"]
+                            fecha = datetime.datetime.now()
+                            datos["venta"][i]["fecha_modificacion"] = fecha.strftime("%Y-%m-%d %H:%M:%S")
                             print("--"*13)
                             print("Venta modificado con exito!")
                             print("--"*13)
@@ -628,9 +648,11 @@ def modificar_venta(datos):
                     for j in range(len(datos["producto"])):
                         if cantidad <= datos["producto"][j]["cantidad"]:
                             datos["producto"][j]["cantidad"] += cantidad
-                            datos["venta"][j]["cantidad"] -= cantidad
+                            datos["venta"][i]["cantidad"] -= cantidad
                             datos["venta"][i]["costo"] = datos["producto"][j]["costo"] 
                             datos["venta"][i]["costo"] *= cantidad
+                            fecha = datetime.datetime.now()
+                            datos["venta"][i]["fecha_modificacion"] = fecha.strftime("%Y-%m-%d %H:%M:%S")
                             print("--"*13)
                             print("Venta modificado con exito!")
                             print("--"*13)
@@ -646,6 +668,8 @@ def modificar_venta(datos):
                 for j in range(len(datos["servicio"])):  
                     datos["venta"][i]["costo"] = datos["servicio"][j]["costo"] 
                     datos["venta"][i]["costo"] *= cantidad
+                    fecha = datetime.datetime.now()
+                    datos["venta"][i]["fecha_modificacion"] = fecha.strftime("%Y-%m-%d %H:%M:%S")
                     print("--"*13)
                     print("Venta modificado con exito!")
                     print("--"*13)

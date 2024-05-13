@@ -1,29 +1,34 @@
 {
     "usuario": [
         {
-            "nombre": "mario",
+            "nombre": "mario parra ",
             "documento": "1",
-            "direccion": "calle 105",
-            "telefono": "34567878",
+            "direccion": "calle 6",
+            "telefono": "35678",
             "edad": 26,
-            "categoria": 1
+            "categoria": 3,
+            "promocion": "todo ilimitado",
+            "costo": 10000.0
         },
         {
-            "nombre": "vanessa martinez ",
+            "nombre": "vanesa martines",
             "documento": "2",
-            "direccion": "calle 2",
-            "telefono": "1234567",
+            "direccion": "calle 0",
+            "telefono": "355689",
             "edad": 33,
-            "categoria": 2
+            "categoria": 1,
+            "promocion": "",
+            "costo": 0
         },
         {
-            "nombre": "carlos",
+            "nombre": "calos cote",
             "documento": "3",
-            "direccion": "calle 8",
-            "telefono": "3457",
-            "promocion": "note1",
-            "edad": 33,
-            "categoria": 3
+            "direccion": "calle 6",
+            "telefono": "34678",
+            "edad": 55,
+            "categoria": 3,
+            "promocion": "",
+            "costo": 0
         }
     ],
     "producto": [
@@ -31,21 +36,21 @@
             "tipo": "tablet",
             "marca": "tcl",
             "referencia": "a2",
-            "cantidad": 23,
+            "cantidad": 11,
             "costo": 400000.0
         },
         {
             "tipo": "telefono",
             "marca": "xiaomi",
             "referencia": "nete1",
-            "cantidad": 40,
+            "cantidad": 37,
             "costo": 500000.0
         },
         {
             "tipo": "computador",
             "marca": "hp",
             "referencia": "hp10",
-            "cantidad": 28,
+            "cantidad": 24,
             "costo": 1000000.0
         }
     ],
@@ -70,12 +75,17 @@
         {
             "tipo": "internet plus",
             "referencia": "+ internet adsl 200mb",
-            "costo": 35000.0
+            "costo": 30000.0
         },
         {
             "tipo": "telefono",
             "referencia": "note1",
             "costo": 300000.0
+        },
+        {
+            "tipo": "telefonia",
+            "referencia": "todo ilimitado",
+            "costo": 10000.0
         }
     ],
     "reclamo": [
@@ -105,33 +115,27 @@
     ],
     "venta": [
         {
-            "tipo": "tablet",
-            "marca": "tcl",
-            "referencia": "a2",
-            "cantidad": 5,
-            "costo": 2000000.0,
-            "nombre_cliente": "vanessa martinez ",
-            "documento_cliente": "2",
-            "numero": 2
-        },
-        {
             "tipo": "internet",
             "referencia": "adsl 10mb",
-            "cantidad": 1,
-            "costo": 20000.0,
-            "nombre_cliente": "mario",
+            "cantidad": 10,
+            "costo": 40000.0,
+            "nombre_cliente": "mario parra ",
             "documento_cliente": "1",
-            "numero": 1
+            "numero": 1,
+            "fecha": "2024-05-13 01:21:17",
+            "fecha_modificacion": "2024-05-13 01:30:46"
         },
         {
-            "tipo": "computador",
-            "marca": "hp",
-            "referencia": "hp10",
-            "cantidad": 2,
-            "costo": 2000000.0,
-            "nombre_cliente": "carlos",
-            "documento_cliente": "3",
-            "numero": 3
+            "tipo": "telefono",
+            "marca": "xiaomi",
+            "referencia": "nete1",
+            "cantidad": 4,
+            "costo": 1600000.0,
+            "nombre_cliente": "vanesa martines",
+            "documento_cliente": "2",
+            "numero": 1,
+            "fecha": "2024-05-13 02:11:10",
+            "fecha_modificacion": "2024-05-13 02:12:12"
         }
     ]
 }
