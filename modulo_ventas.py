@@ -69,6 +69,10 @@ def agregar_venta(datos):
                         return datos
                     
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en agregar venta"
+    guardar_txt(dato, mensaje)
     print("Venta invalido!")
     print("__"*10)
     
@@ -125,6 +129,10 @@ def buscar_venta(datos):
 
 
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en buscar venta"
+    guardar_txt(dato, mensaje)
     print("Venta invalido!")
     print("__"*10)
 
@@ -142,6 +150,10 @@ def eliminar_venta(datos):
             return datos
         
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en eliminar venta"
+    guardar_txt(dato, mensaje)
     print("Venta no existe!")
     print("__"*10)
     return datos
@@ -206,6 +218,10 @@ def modificar_venta(datos):
                     return datos
             
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en modificar venta"
+    guardar_txt(dato, mensaje)
     print("Venta no existe!")
     print("__"*10)
     return datos

@@ -1,6 +1,7 @@
 from modulo_gestion import *
 from modulo_ventas import *
 from modulo_reportes import *
+from cargar_fallos import *
 
 
 def agregar_producto(datos):
@@ -37,6 +38,10 @@ def buscar_producto(datos):
                 print("__"*10)
             return 
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en buscar producto"
+    guardar_txt(dato, mensaje)
     print("Tipo de producto invalido!")
     print("__"*10)
 
@@ -52,6 +57,10 @@ def eliminar_producto(datos):
             return datos
         
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en eliminar producto"
+    guardar_txt(dato, mensaje)
     print("Producto no existe!")
     print("__"*10)
     return datos
@@ -70,6 +79,10 @@ def modificar_producto(datos):
             return datos
         
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en modificar producto"
+    guardar_txt(dato, mensaje)
     print("Producto no existe!")
     print("__"*10)
     return datos
@@ -106,6 +119,10 @@ def buscar_servicio(datos):
                 print("__"*10)
             return 
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en buscar servicio"
+    guardar_txt(dato, mensaje)
     print("Tipo de servicio invalido!")
     print("__"*10)
 
@@ -121,6 +138,10 @@ def eliminar_servicio(datos):
             return datos
         
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en eliminar servicio"
+    guardar_txt(dato, mensaje)
     print("Servicio no existe!")
     print("__"*10)
     return datos
@@ -138,7 +159,11 @@ def modificar_servicio(datos):
             return datos
         
     print("__"*10)
-    print("Producto no existe!")
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en modificar servicio"
+    guardar_txt(dato, mensaje)
+    print("Servicio no existe!")
     print("__"*10)
     return datos
 
@@ -182,6 +207,10 @@ def buscar_promocion(datos):
                 print("__"*10)
             return 
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en buscar promocion"
+    guardar_txt(dato, mensaje)
     print("Tipo de promocion invalido!")
     print("__"*10)
 
@@ -197,6 +226,10 @@ def eliminar_promocion(datos):
             return datos
         
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en eliminar promocion"
+    guardar_txt(dato, mensaje)
     print("Promocion no existe!")
     print("__"*10)
     return datos
@@ -222,6 +255,10 @@ def modificar_promocion(datos):
                         return datos
         
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en modificar promocion"
+    guardar_txt(dato, mensaje)
     print("Promocion no existe!")
     print("__"*10)
     return datos

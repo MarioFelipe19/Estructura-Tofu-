@@ -2,6 +2,7 @@ from modulo_ventas import *
 from modulo_gestion import *
 from modulo_servicios import *
 from funciones import *
+from cargar_fallos import *
 import datetime
 
 def agregar_reclamo(datos):
@@ -25,6 +26,10 @@ def agregar_reclamo(datos):
             return datos
 
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en agregar reclamo"
+    guardar_txt(dato, mensaje)
     print("Documento invalido!")
     print("Reclamo invalido!")
     print("__"*10)
@@ -52,6 +57,10 @@ def buscar_reclamo(datos):
             return 
             
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en buscar reclamo"
+    guardar_txt(dato, mensaje)
     print("Reclamo invalido!")
     print("__"*10)
 
@@ -68,6 +77,10 @@ def eliminar_reclamo(datos):
             return datos
         
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en eliminar reclamo"
+    guardar_txt(dato, mensaje)
     print("Reclamo no existe!")
     print("__"*10)
     return datos
@@ -88,6 +101,10 @@ def modificar_reclamo(datos):
             return datos
         
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en modificar reclamo"
+    guardar_txt(dato, mensaje)
     print("Reclamo no existe!")
     print("__"*10)
     return datos  
@@ -113,6 +130,10 @@ def agregar_sugerencia(datos):
             return datos
     
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en agregar sugerencia"
+    guardar_txt(dato, mensaje)
     print("Documento invalido!")
     print("Sugerencia invalido!")
     print("__"*10)
@@ -141,6 +162,10 @@ def buscar_sugerencia(datos):
                 
         
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en buscar sugerencia"
+    guardar_txt(dato, mensaje)
     print("Sugerencia invalido!")
     print("__"*10)
         
@@ -158,6 +183,10 @@ def eliminar_sugerencia(datos):
             return datos
         
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en eliminar sugerencia"
+    guardar_txt(dato, mensaje)
     print("Sugerencia no existe!")
     print("__"*10)
     return datos
@@ -178,6 +207,10 @@ def modificar_sugerencia(datos):
             return datos
         
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en modificar sugerencia"
+    guardar_txt(dato, mensaje)
     print("sugerencia no existe!")
     print("__"*10)
     return datos 

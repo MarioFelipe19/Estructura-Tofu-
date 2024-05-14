@@ -1,0 +1,10 @@
+
+2024-05-14 09:00:48 Fallo en menu
+2024-05-14 09:00:49 Fallo en menu
+2024-05-14 09:01:01 Fallo en buscar usuario
+2024-05-14 09:16:21 Fallo en menu
+2024-05-14 09:16:23 Fallo en menu
+2024-05-14 09:16:42 Fallo en buscar usuario
+2024-05-14 09:18:00 Fallo en buscar promocion
+2024-05-14 09:33:39 Fallo en buscar venta
+2024-05-14 09:34:27 Fallo en buscar venta

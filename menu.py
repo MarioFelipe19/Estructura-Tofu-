@@ -1,3 +1,5 @@
+import datetime
+from cargar_fallos import *
 def menu_principal():
     print("")
     print("=="* 20)
@@ -70,5 +72,9 @@ def pedir_opcion():
         return op
         
     except Exception:
+        ahora = datetime.datetime.now()
+        dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+        mensaje = "Fallo en menu"
+        guardar_txt(dato, mensaje)
         print("--"*20)
         print("valor invalido")

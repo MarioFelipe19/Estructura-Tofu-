@@ -2,6 +2,7 @@
 from modulo_ventas import *
 from modulo_reportes import *
 from modulo_servicios import *
+from cargar_fallos import *
 
 
 def agregar_usuario(datos):
@@ -55,6 +56,10 @@ def buscar_usuario(datos):
             return 
 
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en buscar usuario"
+    guardar_txt(dato, mensaje)
     print("Documento invalido!")
     print("__"*10)
             
@@ -70,6 +75,10 @@ def eliminar_usuario(datos):
             return datos
         
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en eliminar usuario"
+    guardar_txt(dato, mensaje)
     print("Usuario no existe!")
     print("__"*10)
     return datos
@@ -91,6 +100,10 @@ def modificar_usuario(datos):
             return datos
         
     print("__"*10)
+    ahora = datetime.datetime.now()
+    dato = ahora.strftime("%Y-%m-%d %H:%M:%S")
+    mensaje = "Fallo en modificar usuario"
+    guardar_txt(dato, mensaje)
     print("Usuario no existe!")
     print("__"*10)
     return datos
