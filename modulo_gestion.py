@@ -51,7 +51,7 @@ def buscar_usuario(datos):
         while True:
             for i in range(len(datos["usuario"])):
                 print("__"*10)
-                print("\n""Nombre:",datos["usuario"][i]["nombre"],"\n" "Edad:", datos["usuario"][i]["edad"],"\n""Documento:",datos["usuario"][i]["documento"],"\n" "Direccion:",datos["usuario"][i]["direccion"],"\n" "Telefono:",datos["usuario"][i]["telefono"],"\n" "Categoria:",datos["usuario"][i]["categoria"],"\n" "Tienes una promocion de :",datos["usuario"][i]["promocion"],"\n" "Con costo de :",datos["usuario"][i]["costo"])
+                print("\n""Nombre:",datos["usuario"][i]["nombre"],"\n" "Edad:", datos["usuario"][i]["edad"],"\n""Documento:",datos["usuario"][i]["documento"],"\n" "Direccion:",datos["usuario"][i]["direccion"],"\n" "Telefono:",datos["usuario"][i]["telefono"],"\n" "Categoria:",datos["usuario"][i]["categoria"],"\n""--------------" "\n" "Tienes una promocion de :",datos["usuario"][i]["promocion"],"\n" "Con costo de :",datos["usuario"][i]["costo"])
                 print("__"*10)
             return 
 
