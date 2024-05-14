@@ -69,6 +69,13 @@
             "referencia": "serie s",
             "cantidad": 25,
             "costo": 1400000.0
+        },
+        {
+            "tipo": "telefono",
+            "marca": "vivo",
+            "referencia": "y23",
+            "cantidad": 40,
+            "costo": 600000.0
         }
     ],
     "servicio": [
