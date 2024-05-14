@@ -1,5 +1,8 @@
 from menu import *
-from funciones import *
+from modulo_servicios import *
+from modulo_gestion import *
+from modulo_reportes import *
+from modulo_ventas import *
 from cargar_datos import * 
 
 ruta_base_de_datos = "datos.json"

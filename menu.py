@@ -1,7 +1,7 @@
 def menu_principal():
     print("")
     print("=="* 20)
-    print("          SYSTEMA(Claro)")
+    print("          Estructura(Tofu)")
     print("=="* 20)
     print("")
     print("="*10 +" Modulo de Gestion "+ "="*10)

@@ -7,8 +7,8 @@
             "telefono": "35678",
             "edad": 26,
             "categoria": 3,
-            "promocion": "todo ilimitado",
-            "costo": 10000.0
+            "promocion": "ilimitado nacional ",
+            "costo": 5000.0
         },
         {
             "nombre": "vanesa martines",
@@ -27,6 +27,16 @@
             "telefono": "34678",
             "edad": 55,
             "categoria": 3,
+            "promocion": "",
+            "costo": 0
+        },
+        {
+            "nombre": "laura toti",
+            "documento": "4",
+            "direccion": "calle 5",
+            "telefono": "3334",
+            "edad": 21,
+            "categoria": 1,
             "promocion": "",
             "costo": 0
         }
@@ -52,6 +62,13 @@
             "referencia": "hp10",
             "cantidad": 22,
             "costo": 1000000.0
+        },
+        {
+            "tipo": "consola",
+            "marca": "xbox",
+            "referencia": "serie s",
+            "cantidad": 25,
+            "costo": 1400000.0
         }
     ],
     "servicio": [
@@ -69,6 +86,11 @@
             "tipo": "tv",
             "referencia": "tv plus",
             "costo": 25000.0
+        },
+        {
+            "tipo": "tv satelite",
+            "referencia": "tv satelite",
+            "costo": 50000.0
         }
     ],
     "promocion": [
@@ -86,31 +108,38 @@
             "tipo": "telefonia",
             "referencia": "todo ilimitado",
             "costo": 10000.0
+        },
+        {
+            "tipo": "telefonia fija",
+            "referencia": "ilimitado nacional",
+            "costo": 6000.0
+        },
+        {
+            "tipo": "telefonia fija ",
+            "referencia": "ilimitado al exterios",
+            "costo": 10000.0
         }
     ],
     "reclamo": [
         {
-            "nombre_cliente": "mario",
+            "nombre_cliente": "mario parra ",
             "documento_cliente": "1",
-            "nombre": "queja servicio malo y pesimo ",
-            "contenido": "un muy mal servcio ",
-            "numero": 1
-        },
-        {
-            "nombre_cliente": "vanessa martinez ",
-            "documento_cliente": "2",
-            "nombre": "produto malo",
-            "contenido": "el producto no me funciono ",
-            "numero": 3
+            "nombre": "sigue malo",
+            "contenido": "es muy triste",
+            "numero": 1,
+            "fecha": "2024-05-13 23:06:45",
+            "fecha_modificacion": "2024-05-13 23:07:20"
         }
     ],
     "sugerencia": [
         {
-            "nombre_cliente": "mario",
-            "documento_cliente": "1",
-            "nombre": "mejorar tv",
-            "contenido": "mejorar el sevicio de tv",
-            "numero": 2
+            "nombre_cliente": "vanesa martines",
+            "documento_cliente": "2",
+            "nombre": "el servcio sigue muy deficiente ",
+            "contenido": "el servicio es muy malo ",
+            "numero": 1,
+            "fecha": "2024-05-13 23:02:20",
+            "fecha_modificacion": "2024-05-13 23:05:25"
         }
     ],
     "venta": [
