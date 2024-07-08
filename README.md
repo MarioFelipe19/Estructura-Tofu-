@@ -1,7 +1,7 @@
 # Estrutura-Tofu-Proyecto
 
 
-Este proyecto es un ejemplo para visualizar la plicacion de python en una aplicacion para una empresa. 
+Este proyecto es un ejemplo para visualizar la plicacion de python en una aplicacion para una empresa. ✨
 
 ## Tabla de Contenidos
 
@@ -13,7 +13,7 @@ Este proyecto es un ejemplo para visualizar la plicacion de python en una aplica
 
 ## Introducción
 
-Descripción General Estrutura-Tofu es una aplicación de escritorio para la venta y registro de productos y usuarios, productos y servicios.
+Descripción General Estrutura-Tofu es una aplicación de escritorio para la venta y registro de productos y usuarios, productos y servicios.🎨
 
 
 
@@ -43,11 +43,11 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 ## Tecnologias Utilizadas
-Python: Para la creacion del codigo a ejecutar. Visual Estudio: Para el entorno de desarrollo.
+Python: Para la creacion del codigo a ejecutar. Visual Estudio: Para el entorno de desarrollo.🔨
 
 
 ## Contribuir
-Haga un fork del repositorio. Cree una nueva rama (git checkout -b feature-nueva-funcionalidad). Haga commit de sus cambios (git commit -m 'Añadir nueva funcionalidad'). Haga push a la rama (git push origin feature-nueva-funcionalidad). Abra una solicitud de pull en GitHub.
+Haga un fork del repositorio. Cree una nueva rama (git checkout -b feature-nueva-funcionalidad). Haga commit de sus cambios (git commit -m 'Añadir nueva funcionalidad'). Haga push a la rama (git push origin feature-nueva-funcionalidad). Abra una solicitud de pull en GitHub.🔧
 
  ## Contacto
-puede escribirme a mi correo personal felipeparra257@gmail.com
+puede escribirme a mi correo personal felipeparra257@gmail.com🌐
